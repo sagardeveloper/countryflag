@@ -50,26 +50,29 @@ const Home: () => React$Node = (props) => {
     }
 
     return (
-        <ScrollView style={{ flex: 1, height: height }}>
-
+        <ScrollView automaticallyAdjustContentInsets={true} style={{backgroundColor:'blue',display:'flex'}}>
             <Container >
-
+                    <SvgCssUri
+                        style={styles.flatImg}
+                        width="90%"
+                        height='30%'
+                        uri={data.flag}
+                    >
+                    </SvgCssUri>
                 <Content style={styles.container}>
                     <Text style={styles.countryList}>Details page</Text>
                     <Text style={styles.countryList}>Capital - {data.capital}</Text>
                     <Text style={styles.countryList}>Population - {data.capital}</Text>
                     <Text style={styles.countryList}>Lat-{data.latlng[0]} , Lng - {data.latlng[1]} </Text>
-
-                    <SvgCssUri
-                        style={styles.flatImg}
-                        width="90%"
-                        height='50%'
-                        uri={data.flag}
-                    >
-                    </SvgCssUri>
+                    
                     <Button onPress={() => getWeather()} style={styles.btn}>
                         <Text style={styles.btnTxt}>   Capital Weather   </Text>
-                    </Button>
+                    
+                   
+                   
+                   </Button>
+                  
+                   
 
                     {weatherView ?
                         <>
@@ -81,8 +84,7 @@ const Home: () => React$Node = (props) => {
                 </Content>
 
             </Container>
-        </ScrollView>
-
+            </ScrollView>
     );
 };
 
@@ -101,9 +103,14 @@ const styles = StyleSheet.create({
     flatImg: {
         width: width,
         alignSelf: 'center',
-        height: height * 0.4,
+        backgroundColor:'red'
     },
-    btn: { marginVertical: 15, paddingHorizontal: 20, alignSelf: 'center', textAlign: 'center' },
+    btn: { 
+        marginVertical: 15, 
+        marginTop:100,
+        paddingHorizontal: 20, 
+        alignSelf: 'center', 
+        textAlign: 'center' },
     btnTxt: { alignSelf: 'center', color: 'white', fontWeight: 'bold' },
     weatherIcon: {
         width: width * 0.4,
